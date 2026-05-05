@@ -7,25 +7,7 @@
 
     <display-name>DevOps Dashboard WAR</display-name>
 
-    <servlet>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <servlet-class>com.example.HelloWorldServlet</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>DevOpsServlet</servlet-name>
-        <servlet-class>com.example.DevOpsServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>DevOpsServlet</servlet-name>
-        <url-pattern>/devops</url-pattern>
-    </servlet-mapping>
+    <!-- No servlet mappings here because we use @WebServlet -->
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
