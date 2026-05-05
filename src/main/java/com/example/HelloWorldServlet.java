@@ -1,0 +1,167 @@
+package com.example;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet("/hello")
+public class HelloWorldServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+
+        response.setContentType("text/html;charset=UTF-8");
+
+        try (PrintWriter out = response.getWriter()) {
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("    <title>Dashboard - DevOps Analytics</title>");
+            out.println("    <style>");
+            out.println("        * { margin: 0; padding: 0; box-sizing: border-box; }");
+            out.println("        body {");
+            out.println("            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;");
+            out.println("            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);");
+            out.println("            min-height: 100vh;");
+            out.println("        }");
+            out.println("        .navbar {");
+            out.println("            background: rgba(255,255,255,0.95);");
+            out.println("            padding: 1rem 2rem;");
+            out.println("            box-shadow: 0 2px 10px rgba(0,0,0,0.1);");
+            out.println("            display: flex;");
+            out.println("            justify-content: space-between;");
+            out.println("            align-items: center;");
+            out.println("        }");
+            out.println("        .logo {");
+            out.println("            font-size: 1.5rem;");
+            out.println("            font-weight: bold;");
+            out.println("            color: #667eea;");
+            out.println("        }");
+            out.println("        .nav-menu {");
+            out.println("            display: flex;");
+            out.println("            list-style: none;");
+            out.println("            gap: 2rem;");
+            out.println("        }");
+            out.println("        .nav-menu a {");
+            out.println("            text-decoration: none;");
+            out.println("            color: #333;");
+            out.println("            font-weight: 500;");
+            out.println("            transition: color 0.3s;");
+            out.println("            padding: 0.5rem 1rem;");
+            out.println("            border-radius: 5px;");
+            out.println("        }");
+            out.println("        .nav-menu a:hover {");
+            out.println("            color: #667eea;");
+            out.println("            background: #f0f0f0;");
+            out.println("        }");
+            out.println("        .container {");
+            out.println("            max-width: 1200px;");
+            out.println("            margin: 2rem auto;");
+            out.println("            padding: 2rem;");
+            out.println("        }");
+            out.println("        .card {");
+            out.println("            background: white;");
+            out.println("            border-radius: 15px;");
+            out.println("            padding: 2rem;");
+            out.println("            margin-bottom: 2rem;");
+            out.println("            box-shadow: 0 10px 30px rgba(0,0,0,0.1);");
+            out.println("        }");
+            out.println("        h1 { color: #667eea; margin-bottom: 1rem; }");
+            out.println("        .stats-grid {");
+            out.println("            display: grid;");
+            out.println("            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));");
+            out.println("            gap: 1.5rem;");
+            out.println("            margin-top: 2rem;");
+            out.println("        }");
+            out.println("        .stat-card {");
+            out.println("            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);");
+            out.println("            color: white;");
+            out.println("            padding: 1.5rem;");
+            out.println("            border-radius: 10px;");
+            out.println("            text-align: center;");
+            out.println("            transition: transform 0.3s;");
+            out.println("        }");
+            out.println("        .stat-card:hover { transform: translateY(-5px); }");
+            out.println("        .stat-number { font-size: 2rem; font-weight: bold; margin: 1rem 0; }");
+            out.println("        .progress-bar {");
+            out.println("            width: 100%;");
+            out.println("            height: 30px;");
+            out.println("            background: #e0e0e0;");
+            out.println("            border-radius: 15px;");
+            out.println("            overflow: hidden;");
+            out.println("            margin: 10px 0;");
+            out.println("        }");
+            out.println("        .progress-fill {");
+            out.println("            height: 100%;");
+            out.println("            background: linear-gradient(90deg, #667eea, #764ba2);");
+            out.println("            color: white;");
+            out.println("            line-height: 30px;");
+            out.println("            padding-left: 10px;");
+            out.println("        }");
+            out.println("        @keyframes fadeIn {");
+            out.println("            from { opacity: 0; transform: translateY(20px); }");
+            out.println("            to { opacity: 1; transform: translateY(0); }");
+            out.println("        }");
+            out.println("        .fade-in { animation: fadeIn 0.6s ease-out; }");
+            out.println("    </style>");
+            out.println("    <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("    <nav class=\"navbar\">");
+            out.println("        <div class=\"logo\">🚀 DevOps Dashboard</div>");
+            out.println("        <ul class=\"nav-menu\">");
+            out.println("            <li><a href=\"index.html\">🏠 Home</a></li>");
+            out.println("            <li><a href=\"devops\">⚙️ DevOps</a></li>");
+            out.println("            <li><a href=\"hello\">📊 Dashboard</a></li>");
+            out.println("        </ul>");
+            out.println("    </nav>");
+            out.println("    <div class=\"container\">");
+            out.println("        <div class=\"card fade-in\">");
+            out.println("            <h1>📊 DevOps Analytics Dashboard</h1>");
+            out.println("            <p>Real-time metrics and performance indicators</p>");
+            out.println("            <div class=\"stats-grid\">");
+            out.println("                <div class=\"stat-card\"><div>📊</div><div class=\"stat-number\">99.9%</div><div>Uptime</div></div>");
+            out.println("                <div class=\"stat-card\"><div>🚀</div><div class=\"stat-number\">1,247</div><div>Deployments</div></div>");
+            out.println("                <div class=\"stat-card\"><div>⚡</div><div class=\"stat-number\">245ms</div><div>Response Time</div></div>");
+            out.println("            </div>");
+            out.println("        </div>");
+            out.println("        <div class=\"card fade-in\">");
+            out.println("            <h2>Pipeline Performance</h2>");
+            out.println("            <canvas id=\"pipelineChart\" style=\"max-height: 400px;\"></canvas>");
+            out.println("            <h3>Build Success Rate</h3>");
+            out.println("            <div class=\"progress-bar\"><div class=\"progress-fill\" style=\"width: 94%;\">94%</div></div>");
+            out.println("            <h3>Test Coverage</h3>");
+            out.println("            <div class=\"progress-bar\"><div class=\"progress-fill\" style=\"width: 87%;\">87%</div></div>");
+            out.println("        </div>");
+            out.println("    </div>");
+            out.println("    <script>");
+            out.println("        const ctx = document.getElementById('pipelineChart').getContext('2d');");
+            out.println("        new Chart(ctx, {");
+            out.println("            type: 'line',");
+            out.println("            data: {");
+            out.println("                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],");
+            out.println("                datasets: [{");
+            out.println("                    label: 'Deployments',");
+            out.println("                    data: [12, 19, 15, 17],");
+            out.println("                    borderColor: '#667eea',");
+            out.println("                    tension: 0.4");
+            out.println("                }, {");
+            out.println("                    label: 'Success Rate (%)',");
+            out.println("                    data: [92, 95, 93, 96],");
+            out.println("                    borderColor: '#764ba2',");
+            out.println("                    tension: 0.4");
+            out.println("                }]");
+            out.println("            },");
+            out.println("            options: { responsive: true }");
+            out.println("        });");
+            out.println("    </script>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+}
+
