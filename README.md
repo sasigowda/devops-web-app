@@ -57,7 +57,7 @@ target/hello-world.war
 Add the plugin to `pom.xml` and run:
 ```bash
 mvn tomcat7:run
-# then visit http://localhost:8080/hello-world/hello
+# then visit http://ip:8080/hello-world/hello
 ```
 
 ---
